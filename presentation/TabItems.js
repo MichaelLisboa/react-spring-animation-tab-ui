@@ -1,9 +1,9 @@
-// Tab.js
+// TabItems.js
 import React from "react";
 
-const Tab = ({children, ...props}) =>
+const TabItems = ({children, ...props}) =>
     <div className={`sticky-tab-container tab-item ${props.className}`}>
         {children}
     </div>
 
-export default Tab;
+export default TabItems;

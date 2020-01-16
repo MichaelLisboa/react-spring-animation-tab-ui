@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useSpring, animated as a } from "react-spring";
 import { useGesture } from "react-use-gesture";
-import Tab from "./presentation/Tab";
+import TabItems from "./presentation/TabItems";
 import "./Tabs.css";
 
 const Tabs = ({ // a bunch of args I pass
@@ -40,16 +40,13 @@ const Tabs = ({ // a bunch of args I pass
                 className="tab-header-container"
                 >
                 <div className="tab-header-content">
-                    <SectionTitle
-                        className="with-large-header"
-                        title={title} />
-                    <Tab className={ tabs ? "defaultTabs" : "collapsed-tabs" } connect={connect}>
+                    <TabItems className={ tabs ? "defaultTabs" : "collapsed-tabs" } connect={connect}>
                         {tabLabels.map((label, i) => (
                             <div key={i}>
                                 <a href="/#" data-uk-switcher-item={i}>{label}</a>
                             </div>
                         ))}
-                    </Tab>
+                    </TabItems>
                 </div>
             </a.div>
             <div className="tab-content-fixed-bottom with-header">
