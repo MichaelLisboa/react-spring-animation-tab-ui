@@ -2,27 +2,27 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100vw;
   justify-content: flex-start;
-  align-content: stretch;
   align-items: stretch;
   position: fixed;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
+/* Tabs.css */
+
 .tab-header-container {
-  position: relative;
+  position: relative; /* makes it work */
   margin-top: 0;
   height: auto;
   width: 100%;
   z-index: 1;
   align-items: center;
   justify-content: center;
-  background-color: rgb(252, 250, 255);
 }
 
 .tab-header-content {
+  /* specific to my layout, mileage may vary */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,30 +30,20 @@
 }
 
 .tab-content-fixed-bottom {
+  /* this is your tab content, mileage may vary */
   display: flex;
   flex-direction: column;
   width: 100%;
   overflow-y: scroll;
   align-self: flex-end;
-  background-color: rgb(252, 250, 255);
 }
 
 .sticky-tab-container {
   width: 100%;
-  /* background-color: rgba(252, 250, 255, 0.9); */
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   padding-top: 15px;
-}
-
-.sticky-tab-container div {
-  display: flex;
-  max-width: 40%;
-}
-
-.sticky-tab-container div + div {
-  margin-left: 35px;
 }
 
 .sticky-tab-container div > div {
@@ -64,40 +54,16 @@
 }
 
 .sticky-tab-container div > a {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(100, 100, 100, 0.6);
-  text-align: center;
-  text-decoration: none;
-  border-style: none none inset;
-  border-bottom: solid rgba(255, 186, 235, 0) 2px;
-  padding-left: 2px !important;
-  padding-right: 2px !important;
-  padding-bottom: 0 !important;
+  /* style your tab links here */
 }
 
-.uk-subnav-pill > .uk-active > a {
-  color: rgba(100, 100, 100, 1) !important;
-  background-color: transparent !important;
-  border-style: none none inset;
-  border-bottom: solid 2px rgba(255, 186, 235, 1);
+.tab-item > .tab-item-active > a {
+  /* style your active tab link here */
 }
 
-.profile-content .sticky-tab-container {
-  margin-bottom: 0 !important;
-  background-color: transparent !important;
-}
-
-.collapsedTabs {
+.collapsed-tabs {
+  /* styles for tabs when collapsed
+     I added a little drop shadow animation */
   box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25) !important;
   transition: box-shadow 1s;
-}
-
-.collapsedTabs.uk-subnav-pill div > a {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-.collapsedTabs.uk-subnav-pill > .uk-active > a {
-  color: rgba(255, 255, 255, 1) !important;
 }
