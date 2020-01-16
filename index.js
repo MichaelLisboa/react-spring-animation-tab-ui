@@ -3,8 +3,12 @@
 import React, { useState } from "react";
 import { useSpring, animated as a } from "react-spring";
 import { useGesture } from "react-use-gesture";
-import TabItems from "./presentation/TabItems";
 import "./Tabs.css";
+
+const TabItems = ({children, ...props}) =>
+    <div className={`sticky-tab-container tab-item ${props.className}`}>
+        {children}
+    </div>
 
 const Tabs = ({ // a bunch of args I pass
         connect,
@@ -17,10 +21,10 @@ const Tabs = ({ // a bunch of args I pass
 
     const tabStyle = useSpring({ // this is where react-spring does its thing
         marginTop: tabs ? 0 : -60,
-        fontSize: tabs ? "1em" : "0em",
+        fontSize: tabs ? "1em" : "0em", // Animate text size
         fontColor: tabs ? "rgb(126, 87, 194)" : "rgb(252, 250, 255)",
         backgroundColor: tabs ? "rgba(252, 250, 255, 0)" : "rgb(126, 87, 194)",
-        config: { mass: 1, tension: 400, friction: 30 }
+        config: { mass: 1, tension: 400, friction: 30 } // Add a little bounce on collapse
     });
 
     const bind = useGesture({
@@ -40,10 +44,11 @@ const Tabs = ({ // a bunch of args I pass
                 className="tab-header-container"
                 >
                 <div className="tab-header-content">
+                    <h1 className="page-title">Hi Michael, feeling creative?</h1>
                     <TabItems className={ tabs ? "defaultTabs" : "collapsed-tabs" } connect={connect}>
                         {tabLabels.map((label, i) => (
                             <div key={i}>
-                                <a href="/#" data-uk-switcher-item={i}>{label}</a>
+                                <a href="/#" data-tab-switcher-item={i}>{label}</a>
                             </div>
                         ))}
                     </TabItems>
